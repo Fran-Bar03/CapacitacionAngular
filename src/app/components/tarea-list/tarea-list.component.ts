@@ -10,7 +10,7 @@ import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-tarea-list',
   standalone: true,
-  imports: [ButtonModule, FormsModule, ReactiveFormsModule, TableModule, DialogModule, ButtonModule],
+  imports: [ButtonModule, FormsModule, ReactiveFormsModule, TableModule, DialogModule, ButtonModule,DropdownModule],
   templateUrl: './tarea-list.component.html',
   providers: [DialogService],
   animations: [
@@ -24,4 +24,21 @@ import { ButtonModule } from 'primeng/button';
 })
 export class TareaListComponent {
 tareas: any[] = [];
+displayDialog: boolean = false;
+tareaForm!: FormGroup;
+usuarios: any[] = [];
+
+
+constructor (private fb: FormBuilder) {}
+
+ngOnInit(){
+  this.tareaForm = this.fb.group({
+    idTarea: [null],
+    tarea: ['',Validators.required],
+    descripcion: ['', Validators.required],
+    completada: [false],
+    usuarioo: [null, Validators.required
+    ]
+  });
+}
 }

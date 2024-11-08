@@ -31,24 +31,44 @@
         <td class="text-center">
             <button pButton type="button" icon="pi pi-pencil" class="btn btn-warning me-2"></button>
             <button pButton type="button" icon="pi pi-trash" class="btn btn-danger"></button>
-
         </td>
-
-        
-
-
-
-
-
-
     </tr>
-
-
-
 </ng-template>
-
 </p-table>
+</div>
+    </div>
 
+<p-dialog header="Tareas" [(visible)]="displayDialog" [modal]="true" [closable]="true" [style]="{width: '400px'}">
+
+<form [formGroup]="tareaForm">
+<div class="mb-3">
+    <label for="tarea" class="form-label">Descripcion</label>
+    <input id="tarea" pInputText formControlName="tarea" class="form-formControl">
 </div>
 
+<div class="mb-3">
+    <label for="descripcion" class="form-label">Descripcion</label>
+    <input id="descripcion" pInputText formControlName="descripcion" class="form-formControl">
 </div>
+
+<div class="mb-3">
+    <label for="usuario" class="form-label">Usuario</label>
+    <p-dropdown
+    id="usuario"
+    [options]="usuarios"
+    optionLabel="nombres"
+    formControlName="usuarioo"
+    placeholder="Selecciona un usuario"
+    ></p-dropdown>
+</div>
+
+<div class="d-flex justify-content-end">
+
+<button pButton type="button" label="Cancelar" class="btn btn-secondary me-2"></button>
+<button pButton type="button" label="Guardar" class="btn btn-primary"></button>
+
+</div>
+</form>
+
+    
+</p-dialog>
