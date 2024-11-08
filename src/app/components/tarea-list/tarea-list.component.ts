@@ -41,4 +41,8 @@ ngOnInit(){
     ]
   });
 }
+
+OpenDialog() {
+  this.displayDialog = true;
+}
 }
